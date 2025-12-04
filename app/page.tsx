@@ -1,65 +1,105 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+
+      {/* NAVBAR */}
+      <header className="flex justify-between items-center px-8 py-4 shadow-sm bg-white">
+        <h1 className="text-2xl font-extrabold text-blue-700">SocialSkill AI</h1>
+        
+        <div className="flex gap-4">
+          <Link
+            href="/login"
+            className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Login
+          </Link>
+
+          <Link
+            href="/signup"
+            className="px-4 py-2 rounded-lg border border-blue-600 text-blue-600 hover:bg-blue-50"
           >
-            Documentation
-          </a>
+            Sign Up
+          </Link>
         </div>
-      </main>
+      </header>
+
+      {/* HERO */}
+      <section className="text-center mt-14 max-w-3xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-gray-800 leading-snug">
+          Build Your <span className="text-blue-600">Confidence</span> & Social Skills with AI
+        </h2>
+
+        <p className="mt-4 text-gray-600 text-lg">
+          Practice speaking, improve expressions, fix posture, and receive real-time AI feedback.
+        </p>
+
+        <Link
+          href="/profile"
+          className="mt-8 inline-block px-8 py-4 bg-blue-600 text-white rounded-xl text-lg hover:bg-blue-700"
+        >
+          Start Assessment
+        </Link>
+      </section>
+
+      {/* MODULES */}
+      <section className="mt-16 px-10 pb-20">
+        <h3 className="text-2xl font-bold mb-6 text-gray-700">Explore Modules</h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* 1. Scenario & Response */}
+          <Link href="/scenarios" className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer">
+            <h2 className="text-xl font-semibold text-blue-600 mb-2">Scenario & Response Capture</h2>
+            <p className="text-gray-600 text-sm">
+              Choose a scenario, view prompt, and record your response.
+            </p>
+          </Link>
+
+          {/* 2. Speech & Tone Analysis */}
+          <Link href="/speech-analysis" className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer">
+            <h2 className="text-xl font-semibold text-blue-600 mb-2">Speech & Tone Analysis</h2>
+            <p className="text-gray-600 text-sm">
+              Analyze clarity, tone, speed, filler words, and fluency.
+            </p>
+          </Link>
+
+          {/* 3. Facial Emotion Analysis */}
+          <Link href="/emotion" className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer">
+            <h2 className="text-xl font-semibold text-blue-600 mb-2">Facial Emotion Analysis</h2>
+            <p className="text-gray-600 text-sm">
+              Detect emotions, eye contact, and facial expressions.
+            </p>
+          </Link>
+
+          {/* 4. Body Language */}
+          <Link href="/posture" className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer">
+            <h2 className="text-xl font-semibold text-blue-600 mb-2">Body Language</h2>
+            <p className="text-gray-600 text-sm">
+              Identify posture, gestures, and confidence level.
+            </p>
+          </Link>
+
+          {/* 5. AI Feedback Engine */}
+          <Link href="/feedback" className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer">
+            <h2 className="text-xl font-semibold text-blue-600 mb-2">AI Feedback Engine</h2>
+            <p className="text-gray-600 text-sm">
+              Get AI-powered communication improvement suggestions.
+            </p>
+          </Link>
+
+          {/* 6. Progress Dashboard */}
+          <Link href="/dashboard" className="p-6 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer">
+            <h2 className="text-xl font-semibold text-blue-600 mb-2">Progress Dashboard</h2>
+            <p className="text-gray-600 text-sm">
+              Track your communication progress over time.
+            </p>
+          </Link>
+
+        </div>
+      </section>
     </div>
   );
 }
